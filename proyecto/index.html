@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus CampCoins</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/dark-theme.css" id="theme-stylesheet">
+
+</head>
+<body>
+    <button id="theme-toggle" onclick="cambiarModo()">Cambiar Modo</button>
+    <div class="container">
+        <h1>Gestión de campers</h1>
+        
+            <div class="form">
+                <h2>Agregar Campers</h2>
+                <input type="text" id="numeroIdentificacion"
+                placeholder="ID">
+                <input type="text" id="estudianteNombre" placeholder="Nombre">
+                <input type="text" id="telefono"
+                placeholder="telefono">
+                <input type="text" id="correo"
+                placeholder="correo">
+                <input type="text" id="grupoCamper" 
+                placeholder="grupoCamper">
+                <input type="text" id="CampCoins" 
+                placeholder="CampCoins">
+                <button id="agregarCamper">Agregar</button>
+            </div>
+    
+            <div class="form">
+                <h2>Agregar Curso</h2>
+                <input type="text" id="cursoCodigo" placeholder="Código">
+                <input type="text" id="cursoNombre" placeholder="Nombre">
+                <input type="text" id="cursoEspecialidad" placeholder="Especialidad">
+                <input type="text" id="cursoDuracion" placeholder="Duración (en semanas)">
+                <input type="text" id="cursoCreditos" placeholder="Créditos">
+                <button onclick="agregarCurso()">Agregar</button>
+            </div>
+    
+            <div class="form">
+                <h2>Asignar Horario</h2>
+                <select id="estudianteSelect"></select>
+                <select id="cursoSelect"></select>
+                <input type="text" id="horarioDia" placeholder="Día de la semana">
+                <input type="text" id="horarioHoraInicio" placeholder="Hora de inicio">
+                <input type="text" id="horarioHoraFin" placeholder="Hora de fin">
+                <button onclick="asignarHorario()">Asignar</button>
+            </div>
+    
+            <div class="result">
+                <h2>Horarios Asignados</h2>
+                <table id="horariosTable">
+                    <thead>
+                        <tr>
+                            <th>Estudiante</th>
+                            <th>Curso</th>
+                            <th>Día</th>
+                            <th>Hora de Inicio</th>
+                            <th>Hora de Fin</th>
+                            <th>Editar</th> 
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="horariosList"></tbody>
+                </table>
+            </div>
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="cerrarModalEditar()">&times;</span>
+                    <h2>Editar Horario</h2>
+                    <label for="editHorarioDia">Día:</label>
+                    <input type="text" id="editHorarioDia" value="">
+                    <label for="editHorarioHoraInicio">Hora de Inicio:</label>
+                    <input type="text" id="editHorarioHoraInicio" value="">
+                    <label for="editHorarioHoraFin">Hora de Fin:</label>
+                    <input type="text" id="editHorarioHoraFin" value="">
+                    <input type="hidden" id="editHorarioIndex" value="">
+                    <button onclick="guardarCambios()">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./css/js/script.js" type="module"></script>
+</body>
+</html>
